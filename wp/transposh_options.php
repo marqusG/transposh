@@ -190,6 +190,9 @@ class transposh_plugin_options {
     // private $vars array() = (1,2,3);
 
     function register_option($name, $type, $default_value = '') {
+		if ( ! is_array( $this->options ) ) {
+			$this->options = array();
+		}        
         if (!isset($this->options[$name]))
             $this->options[$name] = $default_value;
         // can't log...     tp_logger($name . ' ' . $this->options[$name]);
